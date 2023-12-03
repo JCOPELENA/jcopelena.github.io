@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Income Tax Calculator</title>
+</head>
+<body>
+
+<h1>Income Tax Calculator</h1>
+<p>This lets you input the Taxable Income and compute the Income Tax.</p>
+<br>
+
+<p>
+<label for="taxinc">Input Taxable Income:</label>    
+<input id="taxinc" type="number" ></input>
+<button onclick= "computetax()">Compute</button>
+<br>
+<label for="itresult">Income Tax:</label>
+<input id="itresult" type="number" readonly ></input>
+</p>
+
+<a href="index.html">Back to Home Page</a>
+
+  <script> 
+    function computetax() { 
+    
+      var bt, ra, it
+
+      bt = document.getElementById("taxinc").value*1;
+
+      if(bt >= 0 && bt <= 250000){
+        ra = 0;
+
+      } else if (bt >= 250000 && bt <= 400000){
+        ra = (bt - 250000) * 0.20;
+        
+      } else if (bt >= 400000 && bt <= 800000){
+        ra = (bt - 400000) * 0.25 + 30000;
+
+      } else if (bt >= 800000 && bt <= 2000000){
+        ra = (bt - 800000) * 0.30 + 130000;
+
+      } else if (bt >= 2000000 && bt <= 8000000){
+        ra = (bt - 2000000) * 0.32 + 490000;
+
+      } else if (bt >= 8000000){
+        ra = (bt - 8000000) * 0.35 + 2410000;
+      }
+      
+      it = ra
+
+      document.getElementById("itresult").value = it;
+    }
+  </script>
+
+</body>
+</html>

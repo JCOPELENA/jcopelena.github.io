@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Simple Computation</title>
+</head>
+<body>
+
+<h1>Celsius to Fahrenheit, Fahrenheit to Celsius</h1>
+<p>This converts Celsius to Fahrenheit & Fahrenheit to Celsius.</p>
+<br>
+
+<p>
+<label for="tempscale">Choose a Temperature Scale:</label>    
+<select id="tempscale">
+  <option value="CelsiustoFahrenheit">Celsius to Fahrenheit</option>
+  <option value="FahrenheittoCelsius">Fahrenheit to Celsius</option>
+</select>
+
+<label for="itv">Input Temperature Value:</label>
+<input id="itv" type="number" ></input>
+<button onclick= "converttemp()">Convert</button>
+<br>
+<label for="convresult">Conversion Result:</label>
+<input id="convresult" type="number" readonly ></input>
+</p>
+
+  <br>
+
+<h1>Meters to Feet, Feet to Meters</h1>
+<p>This converts Meters to Feet & Feet to Meters.</p>
+<br>
+
+<p>
+<label for="measurementtype">Choose a Measurement Type:</label>    
+<select id="measurementtype">
+  <option value="MeterstoFeet">Meters to Feet</option>
+  <option value="FeettoMeters">Feet to Meters</option>
+</select>
+
+<label for="imv">Input Measurement Value:</label>
+<input id="imv" type="number" ></input>
+<button onclick= "convertmeasurement()">Convert</button>
+<br>
+<label for="mconvresult">Conversion Result:</label>
+<input id="mconvresult" type="number" readonly ></input>
+</p>
+
+
+<a href="index.html">Back to Home Page</a>
+
+  <script> 
+    function converttemp() { 
+    
+      var x1, x2, x3 
+
+      x1 = document.getElementById("itv").value*1;
+      x2 = document.getElementById("tempscale").value;
+      if(x2 == "CelsiustoFahrenheit"){
+        x3 = (x1*9)/5+32;
+      } else if (x2 == "FahrenheittoCelsius"){
+        x3 = (x1-32)*5/9;
+      }
+
+      document.getElementById("convresult") .value = x3;
+    
+    }
+
+    function convertmeasurement() { 
+    
+      var x1, x2, x3 
+
+      x1 = document.getElementById("imv").value*1;
+      x2 = document.getElementById("measurementtype").value;
+      if(x2 == "MeterstoFeet"){
+        x3 = x1*3.28084;
+      } else if (x2 == "FeettoMeters"){
+        x3 = x1*0.3048;
+      }
+
+      document.getElementById("mconvresult").value = x3;
+    
+    }
+  </script>
+
+</body>
+</html>

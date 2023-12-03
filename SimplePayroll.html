@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <style>
+        #emplist {
+          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        #emplist td, #emplist th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        
+        #emplist tr:nth-child(even){background-color: #f9e6ff;}
+        #emplist tr:nth-child(odd){background-color: #bfddf1;}
+             
+        
+        #emplist th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #b366ff;
+          color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Simple Payroll</h1>
+<br>
+<p>
+<a href="index.html">Back to Home Page</a>
+</p>
+<br>
+
+<p>
+<label for="emplname">Employee Name:</label>    
+<input id="emplname" name="emplname" type="letter" ></input>
+
+<label for="daysw">Days Worked:</label>
+<input id="daysw" name="daysw" type="number" ></input>
+
+<label for="dailyr">Daily Rate:</label>
+<input id="dailyr" name="dailyr" type="number"></input>
+
+<label for="damount">Deduction Amount:</label>
+<input id="damount" name="damount" type="number"></input>
+
+<button id="addempl">Add Employee</button>
+</p>
+<p>
+<label for="items">Total Items:</label>
+<input id="items" name="items" type="number" readonly></input>
+<button id="clearlist">Clear List</button>
+<label for="delitem">Delete Item:</label>
+<input id="delitem" name="delitem" type="number" ></input>
+<button id="deleteitem" >Delete</button>  
+</p>
+
+<p id="emplist"></p>
+<script>
+    document.addEventListener("load",()=> {   // or just plain addEventListener will do
+        initemplist();
+    });
+
+     document.getElementById("daysw").addEventListener("keyup",()=>   
+       { 
+          computeamount();
+       });
+
+       document.getElementById("dailyr").addEventListener("keyup",()=>   
+       { 
+          computeamount();
+       });
+    // Clear employee list
+     document.getElementById("clearlist").addEventListener("click",()=>   
+       {
+        var toclear;
+
+        toclear=confirm("Delete all item(s) from list ?");
+
+        if (toclear) {
+             initemplist();
+         }
+            
+      });
+
+    // Add item to employee list
+  document.getElementById("addempl").addEventListener("click",()=>   
+       {
+        
+         var emplistitem = {
+             "item": "1",
+             "dailyr": 0,
+             "daysw": 1,
+             "damount": 0,
+             "netpay": 0,
+            "itemamount" : function itemamount(){
+                 return Math.round(this.dailyr*this.daysw*100)/100;  
+               }
+            };
+
+          emplistitem.item=document.getElementById("emplname").value;
+          emplistitem.daysw=document.getElementById("daysw").value;
+          emplistitem.dailyr=document.getElementById("dailyr").value;
+          emplistitem.damount=document.getElementById("damount").value;
+
+          emplistitem.netpay = computeNetPay(emplistitem.daysw, emplistitem.dailyr, emplistitem.damount)
+
+          console.log(emplistitem.item);
+          console.log(emplistitem.daysw);
+          console.log(emplistitem.dailyr);
+
+
+           emplist.push(emplistitem);
+          
+
+          console.log(emplist.length);
+          document.getElementById("items").value=emplist.length;
+
+          showemplist();
+
+    });
+
+    // Compute Amount per Item
+    function computeamount() {
+          var q,p,a,np,da;
+          q = document.getElementById("daysw").value*1;
+          p = document.getElementById("dailyr").value*1;
+          da = document.getElementById("damount").value*1;
+
+          a = Math.round(q*p*100)/100;  // rounds off to 2 decimal places
+        
+          console.log(a);
+
+          //document.getElementById("amount").value=a;
+          //document.getElementById("netpay").value=np;
+        
+    }
+
+    function computeNetPay(daysw, dailyr, damount) {
+    var grossPay = Math.round(daysw * dailyr * 100) / 100;
+    var netPay = Math.round((grossPay - damount) * 100) / 100;
+    
+    return netPay;
+    }    
+    
+    // Delete item from the list of employees
+  document.getElementById("deleteitem").addEventListener("click",()=>   
+      {
+    
+        var todelete;
+        var itemno;
+
+        itemno=document.getElementById("delitem").value;
+
+        todelete=confirm("Delete item no. "+itemno+"?");
+
+        if (todelete) {
+
+            emplist.splice(itemno-1,1);
+            document.getElementById("items").value=emplist.length;
+             showemplist();   
+        }
+
+    });
+
+    // Show the contents of the Employee List
+    function showemplist(){
+
+        var i,l,emplisttext,totalamount,ln;
+        var theader,tbody,tb,tfooter;
+
+    
+        // Generate table header;
+        theader ="<thead>";
+        theader+="<tr>";
+        theader+="<th>No.</th>";
+        theader+='<th style="text-align:left" >Employee Name</th>';
+        theader+="<th>Days Worked</th>";
+        theader+='<th style="text-align:right">Daily Rate</th>';
+        theader+="<th>Gross Pay</th>";
+        theader+="<th>Deduction Amount</th>";
+        theader+="<th>Net Pay</th>";
+        theader+="</tr>";
+        theader+="</thead>";
+        
+        // Generate Table Body
+        l = emplist.length;
+      
+        
+        for (i=0,totalamount=0,emplisttext="",tbody='';i<l;i++){
+            ln=i+1;    
+            tbody += "<tr>"
+                +'<td>'+ln+' </td>'
+                +'<td>'+emplist[i].item+' </td>'
+                +'<td style="text-align:right">'+emplist[i].daysw+'</td>'
+                +'<td style="text-align:right">'+emplist[i].dailyr+'</td>'
+                +'<td style="text-align:right">'+emplist[i].itemamount()+'</td>'
+                +'<td style="text-align:right">'+emplist[i].damount+'</td>'
+                +'<td style="text-align:right">'+emplist[i].netpay+'</td>'                 
+                +"</tr>";
+                       
+            totalamount+=emplist[i].itemamount();
+          
+
+        }
+
+        //tbody += "</tbody>";
+
+        // Generate table footer;
+        tfooter ="<tfoot>";
+        tfooter+="<tr>";
+        tfooter+='<th style="text-align:left">'+emplist.length+'</th>';
+        tfooter+='<th style="text-align:left">Employees</th>';
+        tfooter+='<th></th>';
+        tfooter+='<th></th>';
+        tfooter+='<th></th>';
+        tfooter+='<th></th>';
+        tfooter+='<th></th>';
+        tfooter+="</tr>";
+        tfooter+="</tfoot>";
+
+       console.log(theader+tbody+tfooter);
+        document.getElementById("emplist").innerHTML=
+           "<table>"+theader+tbody+tfooter+"</table>";
+
+
+    }
+
+    // Initialize Employee List CALLED ALSO IN BODY ONLOAD      
+    function initemplist()
+     {
+        console.log("1.passed here.");       
+        emplist=[];
+        document.getElementById("items").value=emplist.length;
+        document.getElementById("emplist").innerHTML="";
+
+            
+    }  
+// Global variable
+var emplist = []; 
+
+</script>
+</body>
+</html>

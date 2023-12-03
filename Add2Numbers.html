@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Add 2 Numbers x3</title>
+
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+
+    <body>
+
+        <h1>This page Adds 2 numbers</h1>
+        <br>
+        <label for="n1">Type the first number:</label>
+        <input id="n1" type="number" onkeyup="computesum()" <br>
+        <label for="n2">Type the second number:</label>
+        <input id="n2" type="number" onkeyup="computesum()" <br>
+
+        <br>
+        <label for="sum">The sum is:</label>
+        <input id="sum" type="number" readonly> 
+        <br>
+        <h1 id="result"</h1>
+        <br><br>
+        <a href="index.html">Back to Home Page</a>
+        <script>
+            function computesum(){
+            var x1, x2, x3
+            
+            x1 = document.getElementById("n1").value*1;
+            x2 = document.getElementById("n2").value*1;
+           // '' converts to string
+           // *1 converts to int
+            x3 = x1+x2
+            
+            document.getElementById("sum").value = x3;
+            document.getElementById("result").innerHTML = 'The sum is '+x3;
+            }
+        </script>
+    </body>
+
+</html>
