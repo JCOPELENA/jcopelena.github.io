@@ -1,22 +1,28 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Poppins:wght@200&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
-<title>Simple Computation</title>
-<style>
-    input{
-        text-align: right;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Poppins:wght@200&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+  <title>Simple Computation</title>
+  <style>
+      
+    body, h1, h2, p, div {
+      margin: 0;
+      padding: 0;
     }
-    #inputaligntright{
+
+    body {
+      background-color: #4B4A54;
+      font-family: 'Sawarabi Gothic', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .inputaligntright{
     text-align :right;
    }
-    body{
-        margin: 0;
-        padding: 0;
-        background-color: #4B4A54;
-    }
     button{
                     display: inline-block;
                     outline: none;
@@ -35,222 +41,68 @@
                         transition: all .1s ease;
                         box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
                     }
-    #headerdiv{
-        margin: 0;
-        padding: 0;
-        font-size: 20px;
-        font-family: 'Poppins', sans-serif;
+    #headerdiv {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      text-align: center;
     }
-        #pageheader{
-        background-color: black;
-        color: white;
-        padding: 10px;
-        text-align:center;
-        margin:0;
+
+    #pageheader {
+      font-size: 20px;
+      font-family: 'Poppins', sans-serif;
     }
-        #paragraphdiv{
-        margin-top: 75px;
-        margin-bottom: 0px;
-        margin-left: 500px;
-        margin-right: 500px;
-        background-color: #677381;
-        padding: 10px;
+
+    #paragraphdiv {
+      margin: 20px auto;
+      max-width: 1200px;
+      background-color: #677381;
+      padding: 10px;
     }
-    #paragraphintro{
-        font-size: 20px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: justify;
-        margin-left: 8px;
-        margin-right: 8px;
-        color: white;
-        }
-    #tempconvdiv{
-    margin-top: 50px;
-    margin-bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #BDA5AB;
-    width: 900px;
-    padding: 20px;
-    float: left;
+
+    #paragraphintro {
+      font-size: 20px;
+      font-family: 'Sawarabi Gothic', sans-serif;
+      text-align: justify;
+      margin: 0 8px;
+      color: white;
     }
-    #tempconvtitle{
-        font-size: 75px;
-        font-family: 'League Gothic', sans-serif;
-        text-align: center;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
+
+    #tempconvdiv, #measurediv {
+      margin: 20px auto;
+      max-width: 900px;
+      background-color: #BDA5AB;
+      padding: 20px;
     }
-    #thisconvtemp{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: left;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
+
+    #tempconvtitle, #measuretitle {
+      font-size: 75px;
+      font-family: 'League Gothic', sans-serif;
+      text-align: center;
+      margin: 0 8px 10px;
+      color: black;
     }
-    #itv{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 1px;
-        margin-bottom: 0px;
-        color: black;
+
+    #thisconvtemp, #thisconvmeasure {
+      font-size: 30px;
+      font-family: 'Sawarabi Gothic', sans-serif;
+      text-align: left;
+      margin: 0 8px 10px;
+      color: black;
     }
-    #itvid{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: left;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
+
+    label, input, select, button {
+      font-size: 30px;
+      margin-bottom: 10px;
     }
-    #convresult{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
+
+    #BackToHPage {
+      background-color: #82A0AA;
+      margin: 20px auto;
+      padding: 10px;
+      font-size: 25px;
     }
-    #convresultid{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: left;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
-    }
-    #tempscale{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: left;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
-    }
-    #tempscaleid{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: left;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
-    }
-    #measurediv {
-        margin-top: 50px;
-        margin-bottom: 0px;
-        margin-left: auto;
-        margin-right: auto;
-        background-color: #BDA5AB;
-        width: 900px;
-        padding: 20px;
-        float: right;
-    }
-    #measuretitle{
-        font-size: 75px;
-        font-family: 'League Gothic', sans-serif;
-        text-align: center;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
-    }
-    #thisconvmeasure{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: left;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
-    }
-    #tempwords1{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: left;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
-    }
-    #measurementtype{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: left;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
-    }
-    #imvid{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: left;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
-    }
-    #imv{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 0px;
-        margin-bottom: 0px;
-        color: black;
-        width: 350px;
-    }
-    #mconvresultid{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        text-align: left;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
-    }
-    #mconvresult{
-        font-size: 30px;
-        font-family: 'Sawarabi Gothic', sans-serif;
-        margin-left: 8px;
-        margin-top: 0px;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        color: black;
-    }
-    #BackToHPage{
-        background-color: #82A0AA;
-        margin-left: 50px;
-        margin-top: 550px;
-        margin-left: 0px;
-        margin-right:0px;
-        padding: 10px;
-        font-size: 25px;    
-    }
-</style>
+  </style>
 </head>
 <body>
     <div id="headerdiv">
@@ -277,10 +129,10 @@
     
 <label id="itvid" for="itv">Input Temperature Value:</label>
 <input id="itv" class="inputaligntright" type="number" oninput="restrictinputwhole(this)"></input>
-<button onclick= "converttemp()">Convert</button>
+<button onclick= "converttemp()" >Convert</button>
 <br>
 <label id="convresultid" for="convresult">Conversion Result:</label>
-<input id="convresult" type="number" readonly ></input>
+<input id="convresult" type="number" class="inputaligntright" readonly ></input>
 </p>
 </div>
 
@@ -301,11 +153,11 @@
     <br>
     
 <label id="imvid" for="imv">Input Measurement Value:</label>
-<input id="imv" class="inputaligntright" type="number" oninput="restrictinputwhole(this)"></input>
+<input id="imv" class="inputaligntright" type="number" oninput="restrictinputwhole(this)" ></input>
 <button onclick="convertmeasurement()">Convert</button>
 <br>
 <label id="mconvresultid" for="mconvresult">Conversion Result:</label>
-<input id="mconvresult" type="number" readonly ></input>
+<input id="mconvresult" type="number" class="inputaligntright" readonly ></input>
 </p>
 </div>
 
