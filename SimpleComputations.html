@@ -1,52 +1,319 @@
  <!DOCTYPE html>
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Poppins:wght@200&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
 <title>Simple Computation</title>
+<style>
+    input{
+        text-align: right;
+    }
+    #inputaligntright{
+    text-align :right;
+   }
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: #4B4A54;
+    }
+    button{
+                    display: inline-block;
+                    outline: none;
+                    cursor: pointer;
+                    font-weight: 600px;
+                    border-radius: 3px;
+                    padding: 12px 24px;
+                    border: 0;
+                    color: #3a4149;
+                    background: #e7ebee;
+                    line-height: 1.15;
+                    font-size: 28px;
+                    font-family: 'Sawarabi Gothic', sans-serif;
+    }
+    button:hover {
+                        transition: all .1s ease;
+                        box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+                    }
+    #headerdiv{
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        font-family: 'Poppins', sans-serif;
+    }
+        #pageheader{
+        background-color: black;
+        color: white;
+        padding: 10px;
+        text-align:center;
+        margin:0;
+    }
+        #paragraphdiv{
+        margin-top: 75px;
+        margin-bottom: 0px;
+        margin-left: 500px;
+        margin-right: 500px;
+        background-color: #677381;
+        padding: 10px;
+    }
+    #paragraphintro{
+        font-size: 20px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: justify;
+        margin-left: 8px;
+        margin-right: 8px;
+        color: white;
+        }
+    #tempconvdiv{
+    margin-top: 50px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #BDA5AB;
+    width: 900px;
+    padding: 20px;
+    float: left;
+    }
+    #tempconvtitle{
+        font-size: 75px;
+        font-family: 'League Gothic', sans-serif;
+        text-align: center;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #thisconvtemp{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #itv{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 1px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #itvid{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #convresult{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #convresultid{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #tempscale{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #tempscaleid{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #measurediv {
+        margin-top: 50px;
+        margin-bottom: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #BDA5AB;
+        width: 900px;
+        padding: 20px;
+        float: right;
+    }
+    #measuretitle{
+        font-size: 75px;
+        font-family: 'League Gothic', sans-serif;
+        text-align: center;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #thisconvmeasure{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #tempwords1{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #measurementtype{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #imvid{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #imv{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        color: black;
+        width: 350px;
+    }
+    #mconvresultid{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #mconvresult{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #BackToHPage{
+        background-color: #82A0AA;
+        margin-left: 50px;
+        margin-top: 550px;
+        margin-left: 0px;
+        margin-right:0px;
+        padding: 10px;
+        font-size: 25px;    
+    }
+</style>
 </head>
 <body>
+    <div id="headerdiv">
+        <h1 id="pageheader">Simple Computation</h1>
+    </div>
 
-<h1>Celsius to Fahrenheit, Fahrenheit to Celsius</h1>
-<p>This converts Celsius to Fahrenheit & Fahrenheit to Celsius.</p>
-<br>
+    <div id= "paragraphdiv">
+    <p id="paragraphintro">Welcome to Simple Computation! With our intuitive interface, you can quickly convert temperatures between Celsius and Fahrenheit or between Meters and Feet. At Simple Computation, you may enjoy a contemporary design, streamline complicated computations, and do hassle-free conversions. The results are rounded off so there will be 0 decimal places.</p>
+    </div>
+    
+    <div id="tempconvdiv">
+<h2 id="tempconvtitle">Celsius to Fahrenheit, Fahrenheit to Celsius</h2>
+<p id="thisconvtemp">This converts Celsius to Fahrenheit & Fahrenheit to Celsius.</p>
 
 <p>
-<label for="tempscale">Choose a Temperature Scale:</label>    
+<label id="tempscaleid" for="tempscale">Choose a Temperature Scale: </label>    
+    
 <select id="tempscale">
   <option value="CelsiustoFahrenheit">Celsius to Fahrenheit</option>
   <option value="FahrenheittoCelsius">Fahrenheit to Celsius</option>
 </select>
 
-<label for="itv">Input Temperature Value:</label>
-<input id="itv" type="number" ></input>
+<br>
+    
+<label id="itvid" for="itv">Input Temperature Value:</label>
+<input id="itv" class="inputaligntright" type="number" oninput="restrictinputwhole(this)"></input>
 <button onclick= "converttemp()">Convert</button>
 <br>
-<label for="convresult">Conversion Result:</label>
+<label id="convresultid" for="convresult">Conversion Result:</label>
 <input id="convresult" type="number" readonly ></input>
 </p>
+</div>
 
-  <br>
+<!--<br>-->
 
-<h1>Meters to Feet, Feet to Meters</h1>
-<p>This converts Meters to Feet & Feet to Meters.</p>
-<br>
+<div id="measurediv">
+<h2 id="measuretitle">Meters to Feet, Feet to Meters</h2>
+<p id="thisconvmeasure">This converts Meters to Feet & Feet to Meters.</p>
 
 <p>
-<label for="measurementtype">Choose a Measurement Type:</label>    
+<label id = "tempwords1" for="measurementtype">Choose a Measurement Type:</label>  
+    
 <select id="measurementtype">
   <option value="MeterstoFeet">Meters to Feet</option>
   <option value="FeettoMeters">Feet to Meters</option>
 </select>
 
-<label for="imv">Input Measurement Value:</label>
-<input id="imv" type="number" ></input>
-<button onclick= "convertmeasurement()">Convert</button>
+    <br>
+    
+<label id="imvid" for="imv">Input Measurement Value:</label>
+<input id="imv" class="inputaligntright" type="number" oninput="restrictinputwhole(this)"></input>
+<button onclick="convertmeasurement()">Convert</button>
 <br>
-<label for="mconvresult">Conversion Result:</label>
+<label id="mconvresultid" for="mconvresult">Conversion Result:</label>
 <input id="mconvresult" type="number" readonly ></input>
 </p>
+</div>
 
+<br>
 
+<div id="BackToHPage">
 <a href="index.html">Back to Home Page</a>
+</div>
 
   <script> 
     function converttemp() { 
@@ -61,7 +328,7 @@
         x3 = (x1-32)*5/9;
       }
 
-      document.getElementById("convresult") .value = x3;
+      document.getElementById("convresult") .value = Math.round(x3);
     
     }
 
@@ -77,8 +344,11 @@
         x3 = x1*0.3048;
       }
 
-      document.getElementById("mconvresult").value = x3;
+      document.getElementById("mconvresult").value = Math.round(x3);
     
+    }
+    function restrictinputwhole(input) {
+        input.value = Math.trunc(input.value);
     }
   </script>
 

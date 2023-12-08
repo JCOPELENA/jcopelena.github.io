@@ -1,26 +1,218 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Poppins:wght@200&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+<title>Looping Methods</title>
+<style>
+    input{
+        text-align: right;
+    }
+    #inputaligntright{
+    text-align :right;
+   }
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: #4B4A54;
+        overflow: sauto;
+        min-height: 150vh;
+    }
+    button{
+                    display: inline-block;
+                    outline: none;
+                    cursor: pointer;
+                    font-weight: 600px;
+                    border-radius: 3px;
+                    padding: 12px 24px;
+                    border: 0;
+                    color: #3a4149;
+                    background: #e7ebee;
+                    line-height: 1.15;
+                    font-size: 28px;
+                    font-family: 'Sawarabi Gothic', sans-serif;
+    }
+    button:hover {
+                        transition: all .1s ease;
+                        box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+                    }
+    #headerdiv{
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        font-family: 'Poppins', sans-serif;
+    }
+        #pageheader{
+        background-color: black;
+        color: white;
+        padding: 10px;
+        text-align:center;
+        margin:0;
+    }
+        #paragraphdiv{
+        margin-top: 50px;
+        margin-bottom: 0px;
+        margin-left: 500px;
+        margin-right: 500px;
+        background-color: #677381;
+        padding: 10px;
+    }
+    #paragraphintro{
+        font-size: 20px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: justify;
+        margin-left: 8px;
+        margin-right: 8px;
+        color: white;
+        }
+    #ivndiv{
+    margin-top: 50px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #BDA5AB;
+    padding: 20px;
+    }
+    #looptitle{
+        font-size: 75px;
+        font-family: 'League Gothic', sans-serif;
+        text-align: center;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #loopdesc{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #itv{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 1px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #itvid{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #convresult{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #tempwords1{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #imvid{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #nlimit{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        color: black;
+        width: 350px;
+    }
+    .ivnid{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: left;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #BackToHPage {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #82A0AA;
+        padding: 10px;
+        font-size: 25px;
+        text-align: center;
+    }
 
-<h1>Print the Nth Factorial, Sum, and Average of the first n Numbers</h1>
+</style>
+</head>
+<body>
+    <div id="headerdiv">
+<h1 id="pageheader">Print the Nth Factorial, Sum, and Average of the first n Numbers</h1>
+    </div>
+    
 <br>
+    
+<div id= "paragraphdiv">
+<p id="paragraphintro">Explore the world of programming with our Looping Methods tool, designed to calculate and display the Nth factorial, sum, and average of the first n numbers. Simply input a value for 'n' and witness the results using various looping techniques. A user-friendly experience for understanding mathematical computations through programming loops.</p>
+
+    
+</div>  
+<br>
+<div id="ivndiv">
+    
+    <h2 id="looptitle">Print the following with the use of different Looping Methods</h2>
+<p id="loopdesc">This Prints the Nth Factorial, Sum and Average of the first n Numbers using different loop methods.</p>
+    
 <p>
+<label for="nlimit" class="ivnid">Input a value for n:</label>
+<input id="nlimit" type="number" oninput="restrictinputwhole(this)"></input>
+<button id="btnshownumbers" >Show Numbers</button>
+</p>
+<h3 id="ntitle" class="ivnid"></h3>
+<p id="nnumbers" class="ivnid"></p>
+<br>
+<h3 id="nstitle" class="ivnid"></h3>
+<p id="nsnumbers" class="ivnid"></p>
+<br>
+<h3 id="natitle" class="ivnid"></h3>
+<p id="nanumbers" class="ivnid"></p>
+</div>
+
+<!--<footer>-->
+<div id="BackToHPage">
 <a href="index.html">Back to Home Page</a>
-</p>
-<br>
-<p>
-<label for="nlimit">Input a value for n:</label>
-<input id="nlimit" type="number"></input>
-<button id="btnshownumbers">Show Numbers</button>
-</p>
-<h3 id="ntitle"></h3>
-<p id="nnumbers"></p>
-<br>
-<h3 id="nstitle"></h3>
-<p id="nsnumbers"></p>
-<br>
-<h3 id="natitle"></h3>
-<p id="nanumbers"></p>
+</div>
+<!--</footer>-->
 <script>
 
     document.getElementById("btnshownumbers").addEventListener("click", () => {
@@ -74,8 +266,10 @@
 
     document.getElementById("nanumbers").innerHTML=
        natext;
-
-});    
+});   
+        function restrictinputwhole(input) {
+        input.value = Math.trunc(input.value);
+    }
 </script>
 
 </body>

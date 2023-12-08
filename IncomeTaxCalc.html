@@ -1,31 +1,167 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Poppins:wght@200&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
 <title>Income Tax Calculator</title>
+<style>
+    input{
+        text-align: right;
+    }
+    #inputaligntright{
+    text-align :right;
+   }
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: #4B4A54;
+    }
+    button{
+                    display: inline-block;
+                    outline: none;
+                    cursor: pointer;
+                    font-weight: 600px;
+                    border-radius: 3px;
+                    padding: 12px 24px;
+                    border: 0;
+                    color: #3a4149;
+                    background: #e7ebee;
+                    line-height: 1.15;
+                    font-size: 28px;
+                    font-family: 'Sawarabi Gothic', sans-serif;
+    }
+    button:hover {
+                        transition: all .1s ease;
+                        box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+                    }
+        #headerdiv{
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        font-family: 'Poppins', sans-serif;
+    }
+        #pageheader{
+        background-color: black;
+        color: white;
+        padding: 10px;
+        text-align:center;
+        margin:0;
+    }
+        #paragraphdiv{
+        margin-top: 75px;
+        margin-bottom: 0px;
+        margin-left: 500px;
+        margin-right: 500px;
+        background-color: #677381;
+        padding: 10px;
+    }
+    #paragraphintro{
+        font-size: 20px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: justify;
+        margin-left: 8px;
+        margin-right: 8px;
+        color: white;
+        }
+    #taxincdiv{
+    margin-top: 50px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #BDA5AB;
+/*    width: 900px;*/
+    padding: 20px;
+    float: center;
+    }
+    #taxinctitle{
+        font-size: 75px;
+        font-family: 'League Gothic', sans-serif;
+        text-align: center;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #taxincinfo{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        text-align: center;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    .itifontsettings1{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+    }
+    #taxinc{
+        font-size: 30px;
+        font-family: 'Sawarabi Gothic', sans-serif;
+        margin-left: 8px;
+        margin-top: 0px;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        color: black;
+/*        height:30px;*/
+    }
+    #BackToHPage{
+        background-color: #82A0AA;
+        margin-left: 50px;
+        margin-top: 190px;
+        margin-left: 0px;
+        margin-right:0px;
+        padding: 10px;
+        font-size: 25px;    
+    }
+</style>
 </head>
 <body>
 
-<h1>Income Tax Calculator</h1>
-<p>This lets you input the Taxable Income and compute the Income Tax.</p>
+    <div id="headerdiv">
+        <h1 id="pageheader">Income Tax Calculator</h1>
+    </div>
+    
+<div id= "paragraphdiv">
+<p id="paragraphintro">Effortlessly calculate your Income Tax with our user-friendly tool. Input your Taxable Income, and get accurate results instantly. Simplify tax planning and compliance for individuals and businesses alike. Take control of your finances with our streamlined Income Tax Calculator. Since the program involves computing currency, the decimal places are set to 2.</p>
+
+    
+</div>
+    
 <br>
 
+<div id="taxincdiv">
+    <h2 id="taxinctitle">Compute Income Tax</h2>
+    <p id="taxincinfo">This lets you input the Taxable Income and compute the Income Tax.</p>
+    
 <p>
-<label for="taxinc">Input Taxable Income:</label>    
-<input id="taxinc" type="number" ></input>
+<label for="taxinc" class="itifontsettings1">Input Taxable Income:</label>    
+<input id="taxinc" type="number" class="itifontsettings1"></input>
 <button onclick= "computetax()">Compute</button>
 <br>
-<label for="itresult">Income Tax:</label>
-<input id="itresult" type="number" readonly ></input>
+<label for="itresult" class="itifontsettings1">Income Tax:</label>
+<input id="itresult" type="number" class="itifontsettings1" readonly ></input>
 </p>
+</div>
 
+<div id="BackToHPage">
 <a href="index.html">Back to Home Page</a>
+</div>
 
   <script> 
     function computetax() { 
     
       var bt, ra, it
 
-      bt = document.getElementById("taxinc").value*1;
+      bt = parseFloat(document.getElementById("taxinc").value*1);
 
       if(bt >= 0 && bt <= 250000){
         ra = 0;
@@ -46,7 +182,7 @@
         ra = (bt - 8000000) * 0.35 + 2410000;
       }
       
-      it = ra
+      it = ra.toFixed(2);
 
       document.getElementById("itresult").value = it;
     }
